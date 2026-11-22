@@ -1,0 +1,14 @@
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Arduino / PlatformIO build output
+build/
+*.hex
+*.elf
+*.bin
+.pio/
+
+# Editors
+.vscode/
+.idea/

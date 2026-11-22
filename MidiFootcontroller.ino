@@ -35,7 +35,7 @@
 
       // Read the state of each button
       if (digitalRead(buttonPin1) == LOW) { // Button is pressed (LOW when using INPUT_PULLUP)
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange1}; // Program Change message
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange1}; // Program Change message
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush(); // Send the MIDI message
         delay(400); // Debounce delay
@@ -43,7 +43,7 @@
       }
 
       if (digitalRead(buttonPin2) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange2};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange2};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);
@@ -51,7 +51,7 @@
       }
 
       if (digitalRead(buttonPin3) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange3};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange3};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);
@@ -59,7 +59,7 @@
       }
 
       if (digitalRead(buttonPin4) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange4};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange4};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);
@@ -67,7 +67,7 @@
       }
 
       if (digitalRead(buttonPin5) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange5};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange5};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);
@@ -75,7 +75,7 @@
       }
 
       if (digitalRead(buttonPin6) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange6};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange6};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);
@@ -83,7 +83,7 @@
       }
 
       if (digitalRead(buttonPin7) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange7};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange7};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);
@@ -91,7 +91,7 @@
       }
 
       if (digitalRead(buttonPin8) == LOW) {
-        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | midiChannel, programChange8};
+        midiEventPacket_t programChangeMessage = {0x0C, 0xC0 | (midiChannel - 1), programChange8};
         MidiUSB.sendMIDI(programChangeMessage);
         MidiUSB.flush();
         delay(400);

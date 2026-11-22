@@ -84,19 +84,17 @@ All settings are at the top of `MidiFootcontroller.ino`:
 
 ```cpp
 const int  buttonPin1     = 2;  // pin for footswitch 1
-const byte midiChannel    = 1;  // MIDI channel value
+const byte midiChannel    = 1;  // MIDI channel (1–16)
 const byte programChange1 = 0;  // PC number for footswitch 1 (0–127)
 ```
 
 - **Program numbers.** Change `programChange1` … `programChange8` to any value from 0 to 127.
-- **MIDI channel.** The status byte is built as `0xC0 | midiChannel`, so the value is
-  *zero-based*: `0` = channel 1, `1` = channel 2, … `15` = channel 16.
-  The default (`1`) sends on **MIDI channel 2**.
+- **MIDI channel.** Set `midiChannel` to 1–16. The default is channel 1.
 - **Debounce.** Each press is followed by a `delay(400)`. Lower it for faster switching,
   or raise it if you see double triggers.
 - **Control Change.** To send CC instead of PC, call
   `sendControlChange(control, value, channel)` in place of the Program Change block.
-  This helper takes a 1-based channel (1–16).
+  This helper also takes a channel from 1 to 16.
 
 ## Troubleshooting
 
@@ -104,7 +102,7 @@ const byte programChange1 = 0;  // PC number for footswitch 1 (0–127)
 | --- | --- |
 | Board isn't detected as MIDI | Make sure it's a native-USB board (Pro Micro / Leonardo / Micro), not an Uno or Mega. |
 | Compile error `MIDIUSB.h: No such file` | Install the **MIDIUSB** library (see Installation). |
-| Nothing happens in the DAW | Check the device is enabled as a MIDI input and listening on the right channel (see *MIDI channel* above). |
+| Nothing happens in the DAW | Check the device is enabled as a MIDI input and listening on the right channel (channel 1 by default). |
 | Not sure if messages are sent | Use a MIDI monitor ([MIDI Monitor](https://www.snoize.com/midimonitor/) on macOS, [MIDI-OX](http://www.midiox.com/) on Windows) to watch incoming messages. |
 | Switch triggers twice | Increase the debounce `delay()` value. |
 | Switch always "pressed" | You probably used a latching or normally-closed switch. Use momentary, normally-open switches. |
